@@ -12,7 +12,7 @@ SDL_Color GetPixelColor(SDL_Surface *pSurface, const int X, const int Y)
   pSurface->pitch       = the length of a row of pixels (in bytes)
   X and Y               = the offset on where on the image to retrieve the pixel; (0, 0) is the upper left corner
   */
-    Uint8 *pPixel = static_cast<Uint8*>(pSurface->pixels) + X * pSurface->pitch + Y * SDL_BYTESPERPIXEL(SDL_PIXELFORMAT_RGBA8888);
+    Uint8 *pPixel = static_cast<Uint8*>(pSurface->pixels) + X * pSurface->pitch + Y * SDL_BYTESPERPIXEL(pSurface->format);
 
     const Uint32 PixelData = *reinterpret_cast<Uint32 *>(pPixel);
 
