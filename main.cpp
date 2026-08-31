@@ -12,7 +12,7 @@ class DataSource {
 public:
     const char path[9] = "data.png";
     SDL_Rect scale = {
-        0, 0, 100, 100
+        0, 0, 326, 326
     };
 };
 
@@ -30,11 +30,11 @@ int main(int argc, char *argv[]) {
     SDL_RenderClear(renderer);
     //
 
-    const int geschwindigkeit = 0; //antipropotional zum detailbei groesser8 ist es unnuetz
+    const int geschwindigkeit = 2; //antipropotional zum detailbei groesser8 ist es unnuetz
     //
 
     DataSource p;
-    SDL_Surface *source_img = IMG_Load("Ob100.png"); // source_imgama  RGB24
+    SDL_Surface *source_img = IMG_Load("Ob326.png"); // source_imgama  RGB24
     if (
         SDL_LockSurface(source_img)) { cout << "Source image locked  "; }
     SDL_Surface *data_source = IMG_Load(p.path); //ARGB8888
@@ -93,7 +93,7 @@ int main(int argc, char *argv[]) {
 
                                              source_y++;
                                                     }
-                    if ((pixel_index[0]>100||pixel_index[1]>100)||(pixel_index[0]<0||pixel_index[1]<0)) {
+                    if ((pixel_index[0]>p.scale.w||pixel_index[1]>p.scale.h)||(pixel_index[0]<0||pixel_index[1]<0)) {
                         cout <<pixel_index[0]<<" "<< pixel_index[1]<<" :: " << data_x << " " << data_y << endl;
                     }
                     ////
